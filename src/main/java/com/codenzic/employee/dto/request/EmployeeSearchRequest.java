@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
+import java.util.Locale;
+
 public record EmployeeSearchRequest(
 
         @Min(0)
@@ -20,7 +22,7 @@ public record EmployeeSearchRequest(
 
         EmployeeStatus status,
 
-        @Pattern(regexp = "id|firstName|lastName|email|department|salary|joiningDate")
+        @Pattern(regexp = "id|firstName|lastName|email|department|salary|joiningDate|status")
         String sortBy,
 
         @Pattern(regexp = "(?i)asc|desc")
@@ -30,8 +32,9 @@ public record EmployeeSearchRequest(
     public EmployeeSearchRequest {
         page = page == null ? 0 : page;
         size = size == null ? 10 : size;
-        sortBy = sortBy == null ? "id" : sortBy;
-        direction = direction == null ? "asc" : direction;
+        search = search == null || search.isBlank() ? null : search.trim();
+        sortBy = sortBy == null ? "id" : sortBy.trim();
+        direction = direction == null ? "asc" : direction.trim().toLowerCase(Locale.ROOT);;
     }
 
     public PaginationRequest toPaginationRequest() {

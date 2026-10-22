@@ -219,14 +219,14 @@ The `status` field is managed by the application entity default when creating a 
 
 Supported query parameters:
 
-| Parameter | Default | Description |
-|---|---:|---|
-| `page` | `0` | Zero-based page number; must be zero or greater |
-| `size` | `10` | Page size from 1 to 100 |
-| `search` | — | Optional text search across first name, last name, and email |
-| `status` | — | Optional employee status: `ACTIVE` or `INACTIVE` |
-| `sortBy` | `id` | Sort field: `id`, `firstName`, `lastName`, `email`, `department`, `salary`, or `joiningDate` |
-| `direction` | `asc` | Sort direction: `asc` or `desc` |
+| Parameter | Default | Description                                                                                           |
+|---|---:|-------------------------------------------------------------------------------------------------------|
+| `page` | `0` | Zero-based page number; must be zero or greater                                                       |
+| `size` | `10` | Page size from 1 to 100                                                                               |
+| `search` | — | Optional text search across first name, last name, and email                                          |
+| `status` | — | Optional employee status: `ACTIVE` or `INACTIVE`                                                      |
+| `sortBy` | `id` | Sort field: `id`, `firstName`, `lastName`, `email`, `department`, `salary`, `joiningDate` or `status` |
+| `direction` | `asc` | Sort direction: `asc` or `desc`                                                                       |
 
 Examples:
 
