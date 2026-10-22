@@ -94,4 +94,15 @@ class GlobalExceptionHandlerTest {
         assertEquals("An unexpected error occurred", result.getBody().message());
         assertFalse(result.getBody().message().contains("database password"));
     }
+
+    @Test
+    void handlesIllegalArgumentAsBadRequest() {
+        IllegalArgumentException exception = new IllegalArgumentException("At least one field must be provided for update");
+        var result = handler.handleIllegalArgument(exception, request);
+        assertEquals(HttpStatus.BAD_REQUEST, result.getStatusCode());
+        assertNotNull(result.getBody());
+        assertEquals(400, result.getBody().status());
+        assertEquals("At least one field must be provided for update", result.getBody().message());
+        assertEquals("/api/v1/employees", result.getBody().path());
+    }
 }

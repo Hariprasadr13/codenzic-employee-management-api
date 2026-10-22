@@ -26,7 +26,7 @@ class EmployeeControllerTest {
     @InjectMocks EmployeeController controller;
 
     private EmployeeResponse response() {
-        return new EmployeeResponse(1L, "Ada", "Lovelace", "ada@example.com", "Engineering", new BigDecimal("90000"), LocalDate.of(2020, 1, 1));
+        return new EmployeeResponse(1L, "Ada", "Lovelace", "ada@example.com", "Engineering", new BigDecimal("90000"), LocalDate.of(2020, 1, 1), EmployeeStatus.ACTIVE);
     }
 
     @Test

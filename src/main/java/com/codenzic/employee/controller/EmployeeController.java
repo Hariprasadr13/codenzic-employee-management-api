@@ -99,8 +99,8 @@ public class EmployeeController {
 
     @Operation(summary = "Delete employee", description = "Deletes an employee using their ID.")
     @ApiResponses({
-            @ApiResponse(responseCode = "204", description = "Employee deleted successfully"),
-            @ApiResponse(responseCode = "404", description = "Employee not found")
+            @ApiResponse(responseCode = "200", description = "Employee deleted successfully; returns a JSON message"),
+            @ApiResponse(responseCode = "404", description = "Employee not found", content = @Content(schema = @Schema(implementation = ApiErrorResponse.class)))
     })
     @DeleteMapping("/{id}")
     public ResponseEntity<Map<String, String>> deleteEmployee(@PathVariable("id") Long id) {

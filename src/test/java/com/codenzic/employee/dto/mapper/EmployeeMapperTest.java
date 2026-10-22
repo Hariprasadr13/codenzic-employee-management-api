@@ -60,6 +60,7 @@ class EmployeeMapperTest {
         assertEquals("Ada", response.firstName());
         assertEquals("ada@example.com", response.email());
         assertEquals(new BigDecimal("1000.00"), response.salary());
+        assertEquals(EmployeeStatus.ACTIVE, response.status());
     }
 
     private Employee sampleEmployee() {

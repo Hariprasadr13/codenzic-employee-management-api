@@ -5,6 +5,7 @@ import com.codenzic.employee.dto.request.EmployeePatchRequest;
 import com.codenzic.employee.dto.request.EmployeeUpdateRequest;
 import com.codenzic.employee.dto.response.EmployeeResponse;
 import com.codenzic.employee.entity.Employee;
+import com.codenzic.employee.entity.enums.EmployeeStatus;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import javax.annotation.processing.Generated;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-10-22T13:06:43+0530",
+    date = "2026-10-22T20:01:23+0530",
     comments = "version: 1.6.3, compiler: javac, environment: Java 21.0.12.1 (Oracle Corporation)"
 )
 @Component
@@ -93,6 +94,7 @@ public class EmployeeMapperImpl implements EmployeeMapper {
         String department = null;
         BigDecimal salary = null;
         LocalDate joiningDate = null;
+        EmployeeStatus status = null;
 
         id = employee.getId();
         firstName = employee.getFirstName();
@@ -101,8 +103,9 @@ public class EmployeeMapperImpl implements EmployeeMapper {
         department = employee.getDepartment();
         salary = employee.getSalary();
         joiningDate = employee.getJoiningDate();
+        status = employee.getStatus();
 
-        EmployeeResponse employeeResponse = new EmployeeResponse( id, firstName, lastName, email, department, salary, joiningDate );
+        EmployeeResponse employeeResponse = new EmployeeResponse( id, firstName, lastName, email, department, salary, joiningDate, status );
 
         return employeeResponse;
     }

@@ -188,6 +188,14 @@ class EmployeeApiIntegrationTest {
                 .andExpect(status().isBadRequest());
     }
 
+    @Test
+    void getEmployees_withInvalidSortBy_shouldReturnBadRequest() throws Exception {
+
+        mockMvc.perform(get("/api/v1/employees")
+                        .param("sortBy", "unknownField"))
+                .andExpect(status().isBadRequest());
+    }
+
     // PUT: FULL UPDATE
 
     @Test
@@ -371,6 +379,19 @@ class EmployeeApiIntegrationTest {
                         .content("""
                                 {"email":"invalid-email"}
                                 """))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void patchEmployee_withEmptyRequest_shouldReturnBadRequest() throws Exception {
+        Employee saved = saveEmployee(
+                "Ada", "Lovelace", "ada@example.com",
+                "Engineering", EmployeeStatus.ACTIVE
+        );
+
+        mockMvc.perform(patch(BASE_URL + "/{id}", saved.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{}"))
                 .andExpect(status().isBadRequest());
     }
 

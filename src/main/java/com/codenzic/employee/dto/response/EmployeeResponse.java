@@ -1,5 +1,6 @@
 package com.codenzic.employee.dto.response;
 
+import com.codenzic.employee.entity.enums.EmployeeStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.math.BigDecimal;
@@ -27,7 +28,10 @@ public record EmployeeResponse(
         BigDecimal salary,
 
         @Schema(description = "Employee's joining date", example = "YYYY-MM-DD")
-        LocalDate joiningDate
+        LocalDate joiningDate,
+
+        @Schema(description = "Employee's status", example = "(ACTIVE or INACTIVE)")
+        EmployeeStatus status
 
 ) {
 }

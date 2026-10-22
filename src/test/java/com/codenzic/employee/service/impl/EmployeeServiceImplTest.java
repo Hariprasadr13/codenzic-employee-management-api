@@ -192,6 +192,6 @@ class EmployeeServiceImplTest {
     }
 
     private static EmployeeResponse response(Long id, String firstName, String lastName, String email) {
-        return new EmployeeResponse(id, firstName, lastName, email, "Engineering", new BigDecimal("90000"), LocalDate.of(2020, 1, 1));
+        return new EmployeeResponse(id, firstName, lastName, email, "Engineering", new BigDecimal("90000"), LocalDate.of(2020, 1, 1), EmployeeStatus.ACTIVE);
     }
 }

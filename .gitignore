@@ -35,3 +35,20 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Local-only Spring configuration
+application-local.*
+application-secret.*
+
+# Operating system files
+.DS_Store
+Thumbs.db

@@ -201,7 +201,7 @@ Example JSON body:
 ```json
 {
   "firstName": "exampleFirst",
-  "lastName": "exampleFirst",
+  "lastName": "exampleLast",
   "email": "example@example.com",
   "department": "Engineering",
   "salary": 45000.00,

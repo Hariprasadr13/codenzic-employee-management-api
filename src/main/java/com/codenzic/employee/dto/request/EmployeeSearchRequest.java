@@ -22,7 +22,7 @@ public record EmployeeSearchRequest(
 
         EmployeeStatus status,
 
-        @Pattern(regexp = "id|firstName|lastName|email|department|salary|joiningDate|status")
+        @Pattern(regexp = "id|firstName|lastName|email|department|salary|joiningDate|status", message = "sortBy must be one of: id, firstName, lastName, email, department, salary, joiningDate, status")
         String sortBy,
 
         @Pattern(regexp = "(?i)asc|desc")
